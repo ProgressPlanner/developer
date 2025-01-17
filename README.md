@@ -27,7 +27,7 @@ submit a pull-request.
 After cloning this repository navigate to the directory where this repository is located and run:
 
 ```
-$ yarn
+$ npm install
 ```
 
 That's it! You are ready to use the portal on your local machine.
@@ -38,7 +38,7 @@ After this, you have the following options:
 To quickly test docs changes, just run:
 
 ```shell
-yarn start
+npm start
 ```
 
 This command starts a local development server and open up a browser window. Most changes are reflected live without 
@@ -54,9 +54,9 @@ If you want to test a bit more thoroughly, run a full build, and serve that loca
 Just run:
 
 ```shell
-yarn build
+npm run build
 # And then to test it locally: 
-yarn serve
+npm run serve
 ```
 
 This command generates static content into the `build` directory and can be served using any static contents hosting 
