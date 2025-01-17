@@ -1,6 +1,6 @@
-# Yoast Developer docs
+# Progress Planner Developer docs
 
-This repository holds all documentation that is hosted on [developer.yoast.com](https://developer.yoast.com).
+This repository holds all documentation that is hosted on [developer.progressplanner.com](https://developer.progressplanner.com).
 All documentation is written in Markdown and is read by [Docusaurus](https://docusaurus.io) to be presented in a 
 user-friendly manner.
 
@@ -76,8 +76,8 @@ format](https://developers.cloudflare.com/pages/platform/redirects/), which incl
 ### Deployment
 Deployment is fully automatic and thus requires no configuration or user interaction.
 
-## Contributing to Yoast Developer portal
-Howdy! It's really great that you want to contribute to the Yoast developer portal. The development of the portal takes 
+## Contributing to the Progress Planner Developer portal
+Howdy! It's really great that you want to contribute to the Progress Planner developer portal. The development of the portal takes 
 place on GitHub.
 
 There are two main ways to contribute:

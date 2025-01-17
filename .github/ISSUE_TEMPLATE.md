@@ -3,5 +3,5 @@
 
 ### Please give us a description of the issue
 
-* [ ] I've read and understood the [contribution guidelines](https://github.com/Yoast/developer/blob/main/.github/CONTRIBUTING.md).
+* [ ] I've read and understood the [contribution guidelines](https://github.com/Emilia-Capital/.github/blob/main/CONTRIBUTING.md).
 * [ ] I've searched for any related issues and avoided creating a duplicate issue.

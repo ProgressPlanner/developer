@@ -15,11 +15,11 @@
     "lint": "eslint src --max-warnings=5"
   },
   "dependencies": {
-    "@docusaurus/core": "^3.5.2",
-    "@docusaurus/plugin-content-blog": "^3.5.2",
-    "@docusaurus/plugin-content-docs": "^3.5.2",
-    "@docusaurus/plugin-sitemap": "^3.5.2",
-    "@docusaurus/preset-classic": "^3.5.2",
+    "@docusaurus/core": "^3.7.0",
+    "@docusaurus/plugin-content-blog": "^3.7.0",
+    "@docusaurus/plugin-content-docs": "^3.7.0",
+    "@docusaurus/plugin-sitemap": "^3.7.0",
+    "@docusaurus/preset-classic": "^3.7.0",
     "@docusaurus/theme-common": "^3.5.2",
     "@docusaurus/theme-mermaid": "^3.5.2",
     "@easyops-cn/docusaurus-search-local": "^0.44.5",
