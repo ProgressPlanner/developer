@@ -9,7 +9,7 @@ import { useDoc } from "@docusaurus/plugin-content-docs/client";
  */
 export default function DocItemMetadata() {
 	const { metadata, frontMatter } = useDoc();
-	const metaImage = "https://yoast.com/shared-assets/opengraph/?title=" + encodeURIComponent( metadata.title );
+	const metaImage = "https://progressplanner.com/assets/opengraph/?title=" + encodeURIComponent( metadata.title );
 	return (
 		<PageMetadata
 			title={ metadata.title }

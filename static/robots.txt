@@ -7,7 +7,7 @@ Disallow: /cdn-fpw/sxg/
 
 # Sitemap
 # -----------------
-Sitemap: https://developer.yoast.com/sitemap.xml
+Sitemap: https://developer.progressplanner.com/sitemap.xml
 
 # Ban bots that don't benefit us.
 # --------------------------------
