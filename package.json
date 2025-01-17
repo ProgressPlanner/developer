@@ -1,6 +1,6 @@
 {
-  "name": "developer-v-2",
-  "version": "0.0.0",
+  "name": "developer-progress-planner",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
@@ -20,9 +20,9 @@
     "@docusaurus/plugin-content-docs": "^3.7.0",
     "@docusaurus/plugin-sitemap": "^3.7.0",
     "@docusaurus/preset-classic": "^3.7.0",
-    "@docusaurus/theme-common": "^3.5.2",
-    "@docusaurus/theme-mermaid": "^3.5.2",
-    "@easyops-cn/docusaurus-search-local": "^0.44.5",
+    "@docusaurus/theme-common": "^3.7.0",
+    "@docusaurus/theme-mermaid": "^3.7.0",
+    "@easyops-cn/docusaurus-search-local": "^0.48.3",
     "@mdx-js/react": "^3.0.1",
     "classnames": "^2.5.1",
     "clipboard": "^2.0.11",
