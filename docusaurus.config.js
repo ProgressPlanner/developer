@@ -23,6 +23,13 @@ export default {
 		mermaid: true,
 	},
 
+	scripts: [
+		{
+			src: 'https://plausible.io/js/script.js', 
+			defer: true, 'data-domain': 'developer.progressplanner.com'
+		}
+	],
+	
 	headTags: [
 		{
 			tagName: "meta",
