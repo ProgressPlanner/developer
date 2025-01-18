@@ -10,7 +10,7 @@ export default {
 	url: "https://developer.progressplanner.com",
 	baseUrl: "/",
 
-	favicon: "https://progressplanner.com/wp-content/uploads/2024/11/icon_progress_planner_emilia.svg",
+	favicon: "img/icon_progress_planner.svg",
 	trailingSlash: true,
 	i18n: {
 		defaultLocale: "en",
@@ -145,7 +145,7 @@ export default {
 					logo: {
 						height: "50px",
 						alt: "Progress Planner Logo",
-						src: "https://progressplanner.com/wp-content/uploads/2024/11/logo_progress_planner_emilia_diap.svg",
+						src: "img/logo_progress_planner_diap.svg",
 					},
 					items: [
 						{
@@ -172,6 +172,19 @@ export default {
 								{
 									label: "About us",
 									href: "https://progressplanner.com/about-progress-planner/",
+								}
+							],
+						},
+						{
+							title: "The plugin",
+							items: [
+								{
+									label: "Install",
+									href: "https://progressplanner.com/download/",
+								},
+								{
+									label: "Pro",
+									href: "https://progressplanner.com/pro/",
 								}
 							],
 						},
