@@ -15,7 +15,7 @@ This documentation is aimed at advanced end-users, developers, plugin/theme auth
 
 ## Progress Planner
 
-If you're starting to develop with Progress Planner, you'll want to turn on the [debug mode](/debug-mode) as one of your first steps.
+If you're starting to develop with Progress Planner, you'll want to turn on the [debug mode](/progress-planner/debug-mode) as one of your first steps.
 
 ### Tasks API
 
