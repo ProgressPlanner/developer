@@ -19,21 +19,21 @@ class Comment_Moderation extends \Progress_Planner\Suggested_Tasks\Local_Tasks\P
      *
      * @var string
      */
-    const ID = 'ch-comment-moderation';
+    protected const ID = 'ch-comment-moderation';
 
     /**
      * The provider type. This is used to determine the type of task.
      *
      * @var string
      */
-    const TYPE = 'maintenance';
+    protected const TYPE = 'maintenance';
 
     /**
      * The capability required to perform the task.
      *
      * @var string
      */
-    protected $capability = 'moderate_comments';
+    protected const CAPABILITY = 'moderate_comments';
 
     /**
      * Check if the task should be added.
@@ -59,9 +59,11 @@ class Comment_Moderation extends \Progress_Planner\Suggested_Tasks\Local_Tasks\P
     public function get_task_details( $task_id = '' ) {
 
         if ( ! $task_id ) {
-            // Generate a unique ID for the task - in this case, the provider ID and the current week 
-            // are needed. If you're not adding the year and week, the task will not repeat.
-            $task_id = $this->get_provider_id() . '-' . \gmdate( 'YW' );
+            /* 
+             * For repetitive tasks, we need to generate a unique ID, in this case, the provider ID 
+             * and the current week are used by the `get_task_id()` method.
+             */
+            $task_id = $this->get_task_id();
         }
 
         return [

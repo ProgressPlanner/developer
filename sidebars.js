@@ -26,7 +26,7 @@ module.exports = {
 					label: "Tasks API",
 					link: {
 						type: "doc",
-						id: "progress-planner/tasks-api/overview",
+						id: "progress-planner/tasks-api/tasks-api",
 					},
 					items: [
 						{

@@ -33,7 +33,7 @@ class Example_One_Time_Task extends Progress_Planner\Suggested_Tasks\Local_Tasks
      *
      * @var string
      */
-    protected $capability = 'moderate_comments';
+    const CAPABILITY = 'moderate_comments';
 
     /**
      * Check if the task should be added.
@@ -41,6 +41,7 @@ class Example_One_Time_Task extends Progress_Planner\Suggested_Tasks\Local_Tasks
      * @return bool
      */
     public function should_add_task() {
+        // This is where you would check if the task should be added.
         return true;
     }
 
@@ -54,7 +55,7 @@ class Example_One_Time_Task extends Progress_Planner\Suggested_Tasks\Local_Tasks
     public function get_task_details( $task_id = '' ) {
 
         if ( ! $task_id ) {
-            $task_id = $this->get_provider_id();
+            $task_id = $this->get_task_id();
         }
 
         return [
