@@ -3,7 +3,7 @@ id: example-one-time-task
 title: "Example one time task"
 ---
 
-Let's say you want to create a one time task for Progress Planner. This would be a task the user would have to do only once. 
+Let's say you want to create a one time task for Progress Planner. This would be a task the user would have to do only once.
 
 The code for this would look like this:
 
@@ -47,9 +47,25 @@ class Example_One_Time_Task extends Progress_Planner\Suggested_Tasks\Local_Tasks
 	 */
 	public function __construct() {
 		$this->url         = $this->capability_required() ? \esc_url( \admin_url( 'options.php?page=example-settings-page' ) ) : '';
-		$this->title       = \esc_html__( 'Example one time task', 'example-text-domain' );
-		$this->description = '<p>' . \esc_html__( 'This is a description of the task.', 'example-text-domain' ) . '</p>';
 		$this->points      = 1;
+	}
+
+	/**
+	 * Get the title.
+	 *
+	 * @return string
+	 */
+	public function get_title() {
+		return \esc_html__( 'Example one time task', 'example-text-domain' );
+	}
+
+	/**
+	 * Get the description.
+	 *
+	 * @return string
+	 */
+	public function get_description() {
+		return \esc_html__( 'This is a description of the task.', 'example-text-domain' );
 	}
 
 	/**
