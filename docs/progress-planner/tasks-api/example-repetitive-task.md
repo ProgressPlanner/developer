@@ -40,8 +40,24 @@ class Comment_Moderation extends \Progress_Planner\Suggested_Tasks\Local_Tasks\P
 	 */
 	public function __construct() {
 		$this->url         = $this->capability_required() ? \esc_url( \admin_url( 'edit-comments.php?comment_status=moderated' ) ) : '';
-		$this->title       = \esc_html__( 'Moderate comments', 'comment-hacks' );
-		$this->description = '<p>' . \esc_html__( 'Moderate comments to make sure they are not spam.', 'comment-hacks' ) . '</p>';
+	}
+
+	/**
+	 * Get the title.
+	 *
+	 * @return string
+	 */
+	public function get_title() {
+		return \esc_html__( 'Moderate comments', 'comment-hacks' );
+	}
+
+	/**
+	 * Get the description.
+	 *
+	 * @return string
+	 */
+	public function get_description() {
+		return \esc_html__( 'Moderate comments to make sure they are not spam.', 'comment-hacks' );
 	}
 
 	/**
