@@ -36,6 +36,13 @@ class Comment_Moderation extends \Progress_Planner\Suggested_Tasks\Providers\Tas
 	protected const CAPABILITY = 'moderate_comments';
 
 	/**
+	 * Whether the task is repetitive.
+	 *
+	 * @var bool
+	 */
+	protected $is_repetitive = true;
+
+	/**
 	 * Constructor.
 	 */
 	public function __construct() {
