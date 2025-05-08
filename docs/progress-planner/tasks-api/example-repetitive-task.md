@@ -12,7 +12,7 @@ The code for this would look like this (for a task to moderates comments, adapte
 /**
  * Task for the comment moderation.
  */
-class Comment_Moderation extends \Progress_Planner\Suggested_Tasks\Local_Tasks\Providers\Repetitive {
+class Comment_Moderation extends \Progress_Planner\Suggested_Tasks\Providers\Tasks {
 
 	/**
 	 * The provider ID.
@@ -34,6 +34,13 @@ class Comment_Moderation extends \Progress_Planner\Suggested_Tasks\Local_Tasks\P
 	 * @var string
 	 */
 	protected const CAPABILITY = 'moderate_comments';
+
+	/**
+	 * Whether the task is repetitive.
+	 *
+	 * @var bool
+	 */
+	protected $is_repetitive = true;
 
 	/**
 	 * Constructor.

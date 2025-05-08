@@ -12,7 +12,7 @@ The code for this would look like this:
 /**
  * One time task for Progress Planner.
  */
-class Example_One_Time_Task extends Progress_Planner\Suggested_Tasks\Local_Tasks\Providers\One_Time {
+class Example_One_Time_Task extends Progress_Planner\Suggested_Tasks\Providers\Tasks {
 
 	/**
 	 * The provider ID.
