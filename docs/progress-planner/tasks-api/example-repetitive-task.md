@@ -93,7 +93,7 @@ class Comment_Moderation extends \Progress_Planner\Suggested_Tasks\Providers\Tas
 
 		$actions[] = [
 			'priority' => 10,
-			'html'     => '<a class="prpl-tooltip-action-text" href="' . \admin_url( 'edit-comments.php?comment_status=moderated' ) . '" target="_blank">' . \esc_html__( 'Moderate comments', 'progress-planner' ) . '</a>',
+			'html'     => '<a class="prpl-tooltip-action-text" href="' . \admin_url( 'edit-comments.php?comment_status=moderated' ) . '" target="_self">' . \esc_html__( 'Moderate comments', 'progress-planner' ) . '</a>',
 		];
 
 		return $actions;

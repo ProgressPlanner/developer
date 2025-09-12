@@ -90,7 +90,7 @@ class Example_One_Time_Task extends Progress_Planner\Suggested_Tasks\Providers\T
 
 		$actions[] = [
 			'priority' => 10,
-			'html'     => '<a class="prpl-tooltip-action-text" href="' . \admin_url( 'options.php?page=example-settings-page' ) . '" target="_blank">' . \esc_html__( 'Change the setting', 'progress-planner' ) . '</a>',
+			'html'     => '<a class="prpl-tooltip-action-text" href="' . \admin_url( 'options.php?page=example-settings-page' ) . '" target="_self">' . \esc_html__( 'Change the setting', 'progress-planner' ) . '</a>',
 		];
 
 		return $actions;
