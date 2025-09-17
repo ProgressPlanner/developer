@@ -77,5 +77,23 @@ class Example_One_Time_Task extends Progress_Planner\Suggested_Tasks\Providers\T
 		// This is where you would check if the task should be added.
 		return true;
 	}
+
+	/**
+	 * Add task actions specific to this task.
+	 *
+	 * @param array $data    The task data.
+	 * @param array $actions The existing actions.
+	 *
+	 * @return array
+	 */
+	public function add_task_actions( $data = [], $actions = [] ) {
+
+		$actions[] = [
+			'priority' => 10,
+			'html'     => '<a class="prpl-tooltip-action-text" href="' . \admin_url( 'options.php?page=example-settings-page' ) . '" target="_self">' . \esc_html__( 'Change the setting', 'progress-planner' ) . '</a>',
+		];
+
+		return $actions;
+	}
 }
 ```

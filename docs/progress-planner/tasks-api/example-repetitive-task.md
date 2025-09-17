@@ -46,7 +46,7 @@ class Comment_Moderation extends \Progress_Planner\Suggested_Tasks\Providers\Tas
 	 * Constructor.
 	 */
 	public function __construct() {
-		$this->url         = $this->capability_required() ? \esc_url( \admin_url( 'edit-comments.php?comment_status=moderated' ) ) : '';
+		$this->url = $this->capability_required() ? \esc_url( \admin_url( 'edit-comments.php?comment_status=moderated' ) ) : '';
 	}
 
 	/**
@@ -79,6 +79,24 @@ class Comment_Moderation extends \Progress_Planner\Suggested_Tasks\Providers\Tas
 		] );
 
 		return $comments > 0;
+	}
+
+	/**
+	 * Add task actions specific to this task.
+	 *
+	 * @param array $data    The task data.
+	 * @param array $actions The existing actions.
+	 *
+	 * @return array
+	 */
+	public function add_task_actions( $data = [], $actions = [] ) {
+
+		$actions[] = [
+			'priority' => 10,
+			'html'     => '<a class="prpl-tooltip-action-text" href="' . \admin_url( 'edit-comments.php?comment_status=moderated' ) . '" target="_self">' . \esc_html__( 'Moderate comments', 'progress-planner' ) . '</a>',
+		];
+
+		return $actions;
 	}
 }
 ```
