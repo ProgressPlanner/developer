@@ -22,13 +22,6 @@ class Example_One_Time_Task extends Progress_Planner\Suggested_Tasks\Providers\T
 	const PROVIDER_ID = 'example-one-time-task';
 
 	/**
-	 * The provider category.
-	 *
-	 * @var string
-	 */
-	const CATEGORY = 'your-own-category-of-task';
-
-	/**
 	 * The capability required to perform the task. Only users with this capability can see the task.
 	 *
 	 * @var string
@@ -41,6 +34,15 @@ class Example_One_Time_Task extends Progress_Planner\Suggested_Tasks\Providers\T
 	 * @var bool
 	 */
 	protected $is_dismissable = false;
+
+	/**
+	 * The task priority.
+	 *
+	 * Tasks are ordered from lowest to highest priority value (0 = highest priority, 100 = lowest priority).
+	 *
+	 * @var int
+	 */
+	protected $priority = 50;
 
 	/**
 	 * Constructor.

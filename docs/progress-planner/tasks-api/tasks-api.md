@@ -6,7 +6,7 @@ slug: /progress-planner/tasks-api/
 
 The Progress Planner Tasks API is a way to add tasks to the Progress Planner.
 
-Tasks are provided by task providers. A single provider can add one or multiple tasks. 
+Tasks are provided by task providers. A single provider can add one or multiple tasks.
 
 ## Adding a task provider
 To add a new task provider to the built-in list of task providers, you can use the [following filter](https://github.com/ProgressPlanner/progress-planner/blob/main/classes/class-suggested-tasks.php):
@@ -17,7 +17,7 @@ To add a new task provider to the built-in list of task providers, you can use t
  *
  * @param array $task_providers The task providers.
  */
-$this->task_providers = \apply_filters( 
+$this->task_providers = \apply_filters(
 	'progress_planner_suggested_tasks_providers',
 	$this->task_providers
 );
@@ -36,8 +36,6 @@ Each task provider class has a few class constants that are used to identify the
 
 * `PROVIDER_ID`<br/>
   Protected constant that holds the ID of the provider. This is used to identify the provider, and should be unique.
-* `CATEGORY`<br/>
-  Protected constant that holds the category of the task. The plugin by default shows only one task per category at a time. You can either use the built-in categories (see below), or create your own.
 * `CAPABILITY`<br/>
   Protected constant that holds the capability required to perform the task. This will already be set in the abstract class, but you can override it if needed.
 * `IS_ONBOARDING_TASK`<br/>
