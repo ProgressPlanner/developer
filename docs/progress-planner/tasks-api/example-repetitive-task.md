@@ -22,13 +22,6 @@ class Comment_Moderation extends \Progress_Planner\Suggested_Tasks\Providers\Tas
 	protected const PROVIDER_ID = 'ch-comment-moderation';
 
 	/**
-	 * The provider category. This is used to determine the category of the task.
-	 *
-	 * @var string
-	 */
-	protected const CATEGORY = 'maintenance';
-
-	/**
 	 * The capability required to perform the task.
 	 *
 	 * @var string
@@ -41,6 +34,15 @@ class Comment_Moderation extends \Progress_Planner\Suggested_Tasks\Providers\Tas
 	 * @var bool
 	 */
 	protected $is_repetitive = true;
+
+	/**
+	 * The task priority.
+	 *
+	 * Tasks are ordered from lowest to highest priority value (0 = highest priority, 100 = lowest priority).
+	 *
+	 * @var int
+	 */
+	protected $priority = 50;
 
 	/**
 	 * Constructor.
