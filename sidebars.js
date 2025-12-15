@@ -22,6 +22,11 @@ module.exports = {
 					id: "progress-planner/debug-mode",
 				},
 				{
+					type: "doc",
+					label: "WP CLI",
+					id: "progress-planner/wp-cli",
+				},
+				{
 					type: "category",
 					label: "Tasks API",
 					link: {
