@@ -21,3 +21,7 @@ If you're starting to develop with Progress Planner, you'll want to turn on the 
 
 If you're looking to add a new task to the Progress Planner, you can do so by following the instructions about the [Tasks API](/progress-planner/tasks-api/).
 
+### WP CLI
+
+Progress Planner includes [WP CLI commands](/progress-planner/wp-cli) for managing tasks and retrieving statistics from the command line.
+

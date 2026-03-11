@@ -12,71 +12,93 @@ The code for this would look like this (for a task to moderates comments, adapte
 /**
  * Task for the comment moderation.
  */
-class Comment_Moderation extends \Progress_Planner\Suggested_Tasks\Local_Tasks\Providers\Repetitive\Repetitive {
+class Comment_Moderation extends \Progress_Planner\Suggested_Tasks\Providers\Tasks {
 
-    /**
-     * The provider ID.
-     *
-     * @var string
-     */
-    protected const ID = 'ch-comment-moderation';
+	/**
+	 * The provider ID.
+	 *
+	 * @var string
+	 */
+	protected const PROVIDER_ID = 'ch-comment-moderation';
 
-    /**
-     * The provider type. This is used to determine the type of task.
-     *
-     * @var string
-     */
-    protected const TYPE = 'maintenance';
+	/**
+	 * The capability required to perform the task.
+	 *
+	 * @var string
+	 */
+	protected const CAPABILITY = 'moderate_comments';
 
-    /**
-     * The capability required to perform the task.
-     *
-     * @var string
-     */
-    protected const CAPABILITY = 'moderate_comments';
+	/**
+	 * Whether the task is repetitive.
+	 *
+	 * @var bool
+	 */
+	protected $is_repetitive = true;
 
-    /**
-     * Check if the task should be added.
-     *
-     * @return bool
-     */
-    public function should_add_task() {
-        $comments = \get_comments( [
-            'status' => 'hold',
-            'count'  => true,
-        ] );
+	/**
+	 * The task priority.
+	 *
+	 * Tasks are ordered from lowest to highest priority value (0 = highest priority, 100 = lowest priority).
+	 *
+	 * @var int
+	 */
+	protected $priority = 50;
 
-        return $comments > 0;
-    }
+	/**
+	 * Constructor.
+	 */
+	public function __construct() {
+		$this->url = $this->capability_required() ? \esc_url( \admin_url( 'edit-comments.php?comment_status=moderated' ) ) : '';
+	}
 
-    /**
-     * Get the task details.
-     *
-     * @param string $task_id The task ID.
-     *
-     * @return array
-     */
-    public function get_task_details( $task_id = '' ) {
+	/**
+	 * Get the title.
+	 *
+	 * @return string
+	 */
+	public function get_title() {
+		return \esc_html__( 'Moderate comments', 'comment-hacks' );
+	}
 
-        if ( ! $task_id ) {
-            /* 
-             * For repetitive tasks, we need to generate a unique ID, in this case, the provider ID 
-             * and the current week are used by the `get_task_id()` method.
-             */
-            $task_id = $this->get_task_id();
-        }
+	/**
+	 * Get the description.
+	 *
+	 * @return string
+	 */
+	public function get_description() {
+		return \esc_html__( 'Moderate comments to make sure they are not spam.', 'comment-hacks' );
+	}
 
-        return [
-            'task_id'      => $task_id,
-            'title'        => \esc_html__( 'Moderate comments', 'comment-hacks' ),
-            'parent'       => 0,
-            'priority'     => 'high',
-            'type'         => $this->get_provider_type(),
-            'points'       => 1,
-            'url'          => $this->capability_required() ? \esc_url( \admin_url( 'edit-comments.php?comment_status=moderated' ) ) : '',
-            'description'  => '<p>' . \esc_html__( 'Moderate comments to make sure they are not spam.', 'comment-hacks' ) . '</p>',
-        ];
-    }
+	/**
+	 * Check if the task should be added.
+	 *
+	 * @return bool
+	 */
+	public function should_add_task() {
+		$comments = \get_comments( [
+			'status' => 'hold',
+			'count'  => true,
+		] );
+
+		return $comments > 0;
+	}
+
+	/**
+	 * Add task actions specific to this task.
+	 *
+	 * @param array $data    The task data.
+	 * @param array $actions The existing actions.
+	 *
+	 * @return array
+	 */
+	public function add_task_actions( $data = [], $actions = [] ) {
+
+		$actions[] = [
+			'priority' => 10,
+			'html'     => '<a class="prpl-tooltip-action-text" href="' . \admin_url( 'edit-comments.php?comment_status=moderated' ) . '" target="_self">' . \esc_html__( 'Moderate comments', 'progress-planner' ) . '</a>',
+		];
+
+		return $actions;
+	}
 }
 ```
-

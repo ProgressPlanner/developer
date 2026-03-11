@@ -3,7 +3,7 @@ id: example-one-time-task
 title: "Example one time task"
 ---
 
-Let's say you want to create a one time task for Progress Planner. This would be a task the user would have to do only once. 
+Let's say you want to create a one time task for Progress Planner. This would be a task the user would have to do only once.
 
 The code for this would look like this:
 
@@ -12,63 +12,90 @@ The code for this would look like this:
 /**
  * One time task for Progress Planner.
  */
-class Example_One_Time_Task extends Progress_Planner\Suggested_Tasks\Local_Tasks\Providers\One_Time\One_Time {
+class Example_One_Time_Task extends Progress_Planner\Suggested_Tasks\Providers\Tasks {
 
-    /**
-     * The provider ID.
-     *
-     * @var string
-     */
-    const ID = 'example-one-time-task';
+	/**
+	 * The provider ID.
+	 *
+	 * @var string
+	 */
+	const PROVIDER_ID = 'example-one-time-task';
 
-    /**
-     * The provider type. This is used to determine the type of task.
-     *
-     * @var string
-     */
-    const TYPE = 'your-own-type-of-task';
+	/**
+	 * The capability required to perform the task. Only users with this capability can see the task.
+	 *
+	 * @var string
+	 */
+	const CAPABILITY = 'moderate_comments';
 
-    /**
-     * The capability required to perform the task. Only users with this capability can see the task.
-     *
-     * @var string
-     */
-    const CAPABILITY = 'moderate_comments';
+	/**
+	 * Whether the task is dismissable.
+	 *
+	 * @var bool
+	 */
+	protected $is_dismissable = false;
 
-    /**
-     * Check if the task should be added.
-     *
-     * @return bool
-     */
-    public function should_add_task() {
-        // This is where you would check if the task should be added.
-        return true;
-    }
+	/**
+	 * The task priority.
+	 *
+	 * Tasks are ordered from lowest to highest priority value (0 = highest priority, 100 = lowest priority).
+	 *
+	 * @var int
+	 */
+	protected $priority = 50;
 
-    /**
-     * Get the task details.
-     *
-     * @param string $task_id The task ID.
-     *
-     * @return array
-     */
-    public function get_task_details( $task_id = '' ) {
+	/**
+	 * Constructor.
+	 */
+	public function __construct() {
+		$this->url         = $this->capability_required() ? \esc_url( \admin_url( 'options.php?page=example-settings-page' ) ) : '';
+		$this->points      = 1;
+	}
 
-        if ( ! $task_id ) {
-            $task_id = $this->get_task_id();
-        }
+	/**
+	 * Get the title.
+	 *
+	 * @return string
+	 */
+	public function get_title() {
+		return \esc_html__( 'Example one time task', 'example-text-domain' );
+	}
 
-        return [
-            'task_id'      => $task_id,
-            'title'        => \esc_html__( 'Example one time task', 'example-text-domain' ),
-            'parent'       => 0,
-            'priority'     => 'medium',
-            'type'         => $this->get_provider_type(),
-            'points'       => 1,
-            'url'          => $this->capability_required() ? \esc_url( \admin_url( 'options.php?page=example-settings-page' ) ) : '',
-            'description'  => '<p>' . \esc_html__( 'This is a description of the task.', 'example-text-domain' ) . '</p>',
-        ];
-    }
+	/**
+	 * Get the description.
+	 *
+	 * @return string
+	 */
+	public function get_description() {
+		return \esc_html__( 'This is a description of the task.', 'example-text-domain' );
+	}
+
+	/**
+	 * Check if the task should be added.
+	 *
+	 * @return bool
+	 */
+	public function should_add_task() {
+		// This is where you would check if the task should be added.
+		return true;
+	}
+
+	/**
+	 * Add task actions specific to this task.
+	 *
+	 * @param array $data    The task data.
+	 * @param array $actions The existing actions.
+	 *
+	 * @return array
+	 */
+	public function add_task_actions( $data = [], $actions = [] ) {
+
+		$actions[] = [
+			'priority' => 10,
+			'html'     => '<a class="prpl-tooltip-action-text" href="' . \admin_url( 'options.php?page=example-settings-page' ) . '" target="_self">' . \esc_html__( 'Change the setting', 'progress-planner' ) . '</a>',
+		];
+
+		return $actions;
+	}
 }
 ```
-
